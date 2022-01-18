@@ -6,6 +6,14 @@ import { AppThemeProvider } from 'contexts/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+console.log = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+console.error = () => {};
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+console.warn = () => {};
+
 ReactDOM.render(
   <React.StrictMode>
     <AppThemeProvider>
