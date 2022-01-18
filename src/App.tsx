@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
 import useAppTheme from 'contexts/theme';
+import GlobalStyles from 'styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import RoutesComponent from 'routes';
 
@@ -16,6 +17,7 @@ function App() {
     <ThemeProvider theme={themes[currentTheme]}>
       <BrowserRouter>
         <RoutesComponent />
+        <GlobalStyles />
       </BrowserRouter>
     </ThemeProvider>
   );

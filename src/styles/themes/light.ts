@@ -1,6 +1,7 @@
 export const light = {
   colors: {
     primary: '#FA7267',
+    secondary: '#252323',
     background: '#fff',
   },
   // fontSizes: {
