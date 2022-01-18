@@ -5,6 +5,7 @@ import useAppTheme from 'contexts/theme';
 import GlobalStyles from 'styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import RoutesComponent from 'routes';
+import Wrapper from 'components/Wrapper';
 
 import * as themes from './styles/themes';
 
@@ -12,12 +13,16 @@ function App() {
   const { currentTheme } = useAppTheme();
 
   return (
-    <ThemeProvider theme={themes[currentTheme]}>
-      <BrowserRouter>
-        <RoutesComponent />
+    <>
+      <ThemeProvider theme={themes[currentTheme]}>
         <GlobalStyles />
-      </BrowserRouter>
-    </ThemeProvider>
+        <Wrapper>
+          <BrowserRouter>
+            <RoutesComponent />
+          </BrowserRouter>
+        </Wrapper>
+      </ThemeProvider>
+    </>
   );
 }
 

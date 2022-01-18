@@ -14,7 +14,7 @@ const Avatar = () => (
     facialHair="mediumBeard"
     graphic="react"
     hair="short"
-    hairColor="black"
+    hairColor="brown"
     hat="none"
     hatColor="green"
     lashes={false}

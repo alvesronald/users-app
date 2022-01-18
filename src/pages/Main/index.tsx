@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { useFetch } from 'hooks/useFetch';
-import Card from 'components/Card';
+import CardItem from 'components/CardItem';
+import Div from 'components/Div';
 
 const path = 'users';
 
-export const Main = () => {
+const Main = () => {
   const { loading, records, error } = useFetch(path);
   return (
     <>
-      {records.map((record) => (
-        <Card
-          name={record.name}
-          email={record.email}
-          username={record.username}
-        />
-      ))}
+      <Div display="flex" flexDirection="row">
+        {records.map((record) => (
+          <CardItem
+            name={record.name}
+            email={record.email}
+            username={record.username}
+            key={record.id}
+          />
+        ))}
+      </Div>
     </>
   );
 };
+
+export default memo(Main);

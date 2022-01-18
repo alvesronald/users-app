@@ -2,7 +2,9 @@ export const light = {
   colors: {
     primary: '#FA7267',
     secondary: '#252323',
-    background: '#fff',
+    terciary: '#FFF',
+    background: '#FFF',
+    colorText: '#252323',
   },
   // fontSizes: {
   //   default: '1.4rem',
