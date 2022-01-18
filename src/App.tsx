@@ -1,14 +1,23 @@
 import React from 'react';
 
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import useAppTheme from 'contexts/theme';
+import { BrowserRouter } from 'react-router-dom';
+import RoutesComponent from 'routes';
+
+import * as themes from './styles/themes';
 
 function App() {
+  const { currentTheme } = useAppTheme();
+
+  console.log({ currentTheme });
+
   return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
+    <ThemeProvider theme={themes[currentTheme]}>
+      <BrowserRouter>
+        <RoutesComponent />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
