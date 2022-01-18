@@ -11,8 +11,6 @@ import * as themes from './styles/themes';
 function App() {
   const { currentTheme } = useAppTheme();
 
-  console.log({ currentTheme });
-
   return (
     <ThemeProvider theme={themes[currentTheme]}>
       <BrowserRouter>
