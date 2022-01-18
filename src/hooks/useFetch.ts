@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import axios, { AxiosError } from 'axios';
 import { UserProps } from 'interface/UserProps';
@@ -13,22 +13,23 @@ export const useFetch = <T extends UserProps>(
 
   const url = `${process.env.REACT_APP_API}/${path}`;
 
-  useEffect(() => {
-    const callFetchFunction = async () => {
-      setLoading(true);
+  const callFetchFunction = useCallback(async () => {
+    setLoading(true);
+    setError(undefined);
 
-      try {
-        const res = await axios.get<T[]>(url, { params: options });
-        setRecords(res.data);
-      } catch (e) {
-        setError(e as AxiosError);
-      }
+    try {
+      const res = await axios.get<T[]>(url, { params: options });
+      setRecords(res.data);
+    } catch (e) {
+      setError(e as AxiosError);
+    }
 
-      setLoading(false);
-    };
-
-    callFetchFunction();
+    setLoading(false);
   }, [options, url]);
 
-  return { records, loading, error };
+  useEffect(() => {
+    callFetchFunction();
+  }, [options, url, callFetchFunction]);
+
+  return { records, loading, error, callFetchFunction };
 };
