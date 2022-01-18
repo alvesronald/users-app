@@ -14,6 +14,7 @@ export const CardContentArea = styled(CardActionArea)`
     && {
       background-color: ${theme.colors.terciary};
       color: ${theme.colors.colorText};
+      cursor: initial;
     }
   `}
 `;
@@ -22,6 +23,7 @@ export const Typography = styled(TypographyMaterial)`
   ${({ theme }) => css`
     && {
       color: ${theme.colors.colorText};
+      cursor: initial;
     }
   `}
 `;
